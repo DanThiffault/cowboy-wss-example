@@ -1,0 +1,10 @@
+{application, wss_example,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {modules, []},
+  {registered, [wss_example_sup]},
+  {applications, [kernel,stdlib,crypto,cowboy,compiler,lager,syntax_tools]},
+  {mod, { wss_example_app, []}},
+  {env, []}
+ ]}.
