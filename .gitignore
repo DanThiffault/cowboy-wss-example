@@ -5,3 +5,4 @@ _rel
 deps
 relx
 .erlang.mk.packages.v1
+*.pem

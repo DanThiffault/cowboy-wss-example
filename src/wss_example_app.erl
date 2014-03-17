@@ -19,6 +19,11 @@ start(_StartType, _StartArgs) ->
         ]),
     {ok, _} = cowboy:start_http(http, 100, [{port, 8080}],
         [{env, [{dispatch, Dispatch}]}]),
+    SSLDir = code:priv_dir(wss_example) ++ "/ssl/",
+    {ok, _} = cowboy:start_https(https, 100, [{port, 8443},
+                                              {certfile, SSLDir ++ "cert.pem"},
+                                              {keyfile, SSLDir ++ "key.pem"}],
+                                 [{env, [{dispatch, Dispatch}]}]),
     wss_example_sup:start_link().
 
 stop(_State) ->

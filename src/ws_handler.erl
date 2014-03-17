@@ -6,8 +6,8 @@
         websocket_info/3, websocket_terminate/3
         ]).
 
-init({tcp, http}, _Req, _Opts) ->
-    {upgrade, protocol, cowboy_websocket}.
+init({_, http}, _Req, _Opts) ->
+     {upgrade, protocol, cowboy_websocket}.
 
 websocket_init(_Any, Req, []) ->
     {ok, Req, undefined_state}.
